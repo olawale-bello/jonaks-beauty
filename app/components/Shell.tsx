@@ -1,5 +1,9 @@
 "use client";
 import {useState} from "react";
+import {ArrowDown, ArrowUpRight} from "lucide-react";
 export function Header(){const[open,setOpen]=useState(false);return <><header className="site-header"><a className="wordmark" href="/">JONAKS <i>Beauty</i></a><nav className="desktop-nav"><a href="/about">About Me</a><a href="/portfolio">Portfolio</a><a className="nav-book" href="/booking">Book</a></nav><button type="button" className="menu-button" onClick={()=>setOpen(!open)} aria-label={open?"Close menu":"Open menu"} aria-expanded={open} aria-controls="mobile-navigation"><i/><i/></button></header><nav id="mobile-navigation" aria-label="Mobile navigation" className={`mobile-menu ${open?"is-open":""}`}>{[["01","About Me","/about"],["02","Portfolio","/portfolio"],["03","Book","/booking"]].map(x=><a key={x[0]} href={x[2]}><span>{x[0]}</span>{x[1]}</a>)}</nav></>}
 export function Footer(){return <footer><div className="footer-grid"><div><p>Luxury bridal and occasion makeup artistry across Europe. Where your vision becomes art.</p></div><div><p className="footer-title">Quick Links</p><a href="/about">About</a><a href="/portfolio">Portfolio</a><a href="https://instagram.com/jonaksbeauty">Instagram</a></div><div><p className="footer-title">Get in Touch</p><a href="mailto:jonaksbeauty@gmail.com">jonaksbeauty@gmail.com</a><a href="https://instagram.com/jonaksbeauty">Instagram</a><a href="https://wa.me/37258779607?text=Hello!%20I'd%20like%20to%20find%20out%20your%20availability%20on">WhatsApp</a></div></div><div className="footer-bottom"><span>© 2026 Jonaks Beauty. All rights reserved.</span><span>Based in Tallinn · Available across Europe</span></div></footer>}
-export const Arrow=()=> <span aria-hidden="true">↗</span>;
+export function Arrow({direction = "up-right"}: {direction?: "up-right" | "down"}) {
+  const Icon = direction === "down" ? ArrowDown : ArrowUpRight;
+  return <span className="arrow-icon" aria-hidden="true"><Icon size={18} strokeWidth={1.5}/></span>;
+}
