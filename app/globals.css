@@ -39,16 +39,17 @@ body{font-family:"Inter",Arial,sans-serif;font-weight:300}.wordmark,.hero h1,.in
 .line-link{align-items:center}
 .service>.arrow-icon svg{width:1.4rem;height:1.4rem}
 .scroll-note{align-items:center}
-/* A portrait-focused image above the copy keeps both readable on phones. */
+/* Center the mobile copy over the portrait, below the model's face. */
 @media(max-width:800px){
-  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column}
-  .hero>img{position:relative;inset:auto;width:100%;height:clamp(20rem,58svh,32rem);object-position:78% top;animation:none;transform:none}
+  .hero{height:auto;min-height:max(100svh,44rem);display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+  .hero>img{position:absolute;inset:0;width:100%;height:100%;object-position:76% top;animation:none;transform:none}
   html.scroll-motion .hero>img{translate:none;scale:none}
-  .hero-content{position:relative;inset:auto;transform:none;padding:2.5rem var(--page-gutter) 3rem}
-  .hero h1{font-size:clamp(3.4rem,16vw,5.2rem);line-height:.9;margin:1.75rem 0 2rem}
-  .hero-actions{gap:1.5rem}
-  .hero .pill.light{background:var(--ink);color:#fff}
-  .hero .pill.light .arrow-icon{background:#fff;color:var(--ink)}
+  .hero .hero-shade{display:block;background:linear-gradient(180deg,#18151210 0%,#18151200 25%,#18151255 48%,#181512b8 76%,#181512d1 100%)}
+  .hero-content{position:relative;inset:auto;transform:none;padding:clamp(20rem,42svh,29rem) var(--page-gutter) max(2.5rem,env(safe-area-inset-bottom));text-align:center}
+  .hero h1{font-size:clamp(3.4rem,16vw,5.2rem);line-height:.9;margin:1.5rem auto 1.75rem}
+  .hero h1 em{color:#e3b1a5}
+  .hero-actions{gap:1.25rem;align-items:center;justify-content:center}
+  .hero .light-line{color:#fff}
   .gallery figure:nth-child(even){margin-top:0}
 }
 /* Reserve a separate column for service previews instead of covering the copy. */
