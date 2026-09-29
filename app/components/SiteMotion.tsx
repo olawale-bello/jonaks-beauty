@@ -7,7 +7,6 @@ const REVEAL_SELECTOR = [
   ".intro > *",
   ".section-head",
   ".service",
-  ".marquee",
   ".feature-image",
   ".feature-copy > *",
   ".portrait",

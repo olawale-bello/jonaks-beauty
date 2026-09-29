@@ -101,7 +101,7 @@ html[data-home-intro="show"] .site-loader{display:flex}
 @media(max-width:800px){.feature{grid-template-columns:1fr}.feature-copy{overflow:visible}.feature h2{max-width:24rem}.feature-copy .pill{gap:1.25rem}.pill{padding-inline:1.25rem}.scroll-motion :is(.hero,.inner-hero) > img{scale:1.1}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}html[data-home-intro] .site-loader{display:none}*,*::before,*::after{animation:none!important}.scroll-motion :is(.intro-copy,.section-head,.feature-copy h2,.inner-hero h1,.story-lead,.portfolio-head h1,.booking-head h1,.cta h2,.policy aside h2,.gallery figure,.hero > img,.inner-hero > img,.feature-image img){translate:none;scale:none}}
 
-/* Interaction layer: entrances, reveals, cursor, marquee, lightbox. */
+/* Interaction layer: entrances, reveals, cursor, lightbox. */
 @keyframes rise{from{opacity:0;transform:translateY(2.5rem)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 :is(.hero-content,.inner-hero>div:last-child,.portfolio-head,.booking-head)>*{animation:rise 1.1s cubic-bezier(.16,.8,.2,1) both}
@@ -149,15 +149,6 @@ html:not(.scroll-motion) .scroll-progress{display:none}
 .service-image img{transition:scale 1.2s cubic-bezier(.16,.8,.2,1)}
 .service:hover .service-image img{scale:1.08}
 
-.marquee{overflow:hidden;background:#221a18;color:var(--cream);padding:clamp(2.5rem,5vw,4.5rem) 0 0;border-bottom:1px solid #ffffff1a}
-.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track>span{display:flex;flex:none}
-.marquee-track>span>span{display:flex;align-items:center;gap:clamp(1.5rem,3vw,3rem);padding-right:clamp(1.5rem,3vw,3rem);font:400 clamp(2.6rem,6vw,6.5rem)/1.2 "MightyQuite",Didot,serif;white-space:nowrap}
-.marquee-track>span>span:nth-child(even){color:transparent;-webkit-text-stroke:1px #d7ad9f}
-.marquee i{font-style:normal;font-size:.35em;color:#d7ad9f}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
 .feature-image img{transition:scale 1.4s cubic-bezier(.16,.8,.2,1)}
 .feature-image:hover img{scale:1.04}
 .portrait{overflow:hidden}
@@ -202,7 +193,7 @@ html:has(.lightbox[open]){overflow:hidden}
 .pill.is-ready{animation:ready .9s cubic-bezier(.16,.8,.2,1)}
 @keyframes ready{0%{box-shadow:0 0 0 0 #6c263066}100%{box-shadow:0 0 0 1.25rem #6c263000}}
 
-@media(prefers-reduced-motion:reduce){.cursor,.scroll-progress{display:none}.marquee-track{transform:none}.service:hover h3{translate:none}}
+@media(prefers-reduced-motion:reduce){.cursor,.scroll-progress{display:none}.service:hover h3{translate:none}}
 
 /* Hero depth: the portrait drifts against the pointer, the headline follows it, and a soft light tracks it. */
 .hero-light{display:none}
@@ -216,8 +207,7 @@ html:has(.lightbox[open]){overflow:hidden}
 }
 
 /* Home's closing band uses the same wine as the other pages' calls to action. */
-.feature,.marquee{background:var(--cta-background)}
-.marquee{border-bottom-color:#ffffff24}
+.feature{background:var(--cta-background)}
 
 /* A shorter About hero so the story starts sooner. */
 .inner-hero{height:70svh;min-height:32rem}
