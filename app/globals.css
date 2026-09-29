@@ -214,3 +214,24 @@ html:has(.lightbox[open]){overflow:hidden}
   html.has-cursor .hero.is-pointer .hero-light{opacity:1}
   html.has-cursor .hero-content{z-index:2}
 }
+
+/* Home's closing band uses the same wine as the other pages' calls to action. */
+.feature,.marquee{background:var(--cta-background)}
+.marquee{border-bottom-color:#ffffff24}
+
+/* A shorter About hero so the story starts sooner. */
+.inner-hero{height:70svh;min-height:32rem}
+@media(max-width:800px){.inner-hero{height:62svh;min-height:26rem}}
+
+/* Portfolio hero portrait, fading into the dark header. */
+.portfolio-head{position:relative;overflow:hidden}
+.portfolio-head>:not(.head-media){position:relative;z-index:1}
+.portfolio-head>.head-media{position:absolute;top:0;right:0;bottom:0;width:min(46%,44rem);overflow:hidden;animation:fade 1.4s ease both}
+.head-media img{object-position:center 30%}
+.head-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0,#18151299 30%,transparent 65%),linear-gradient(180deg,#181512b3,transparent 22%),linear-gradient(0deg,#181512b3,transparent 35%)}
+.portfolio-head>:nth-child(4){animation-delay:.36s}
+.scroll-motion .head-media img{translate:0 var(--scroll-shift,0px);scale:1.06}
+@media(max-width:800px){
+  .portfolio-head>.head-media{width:100%}
+  .head-media:after{background:linear-gradient(0deg,var(--ink) 0,#181512cc 45%,#18151259 100%)}
+}
