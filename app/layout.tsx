@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SiteMotion } from "./components/SiteMotion";
+import { PointerEffects } from "./components/PointerEffects";
 import { homeIntroBootstrap } from "../lib/home-intro.js";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: homeIntroBootstrap }} /></head>
-      <body className="antialiased"><SiteMotion />{children}</body>
+      <body className="antialiased"><SiteMotion /><PointerEffects />{children}</body>
     </html>
   );
 }
