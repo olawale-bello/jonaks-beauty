@@ -203,3 +203,14 @@ html:has(.lightbox[open]){overflow:hidden}
 @keyframes ready{0%{box-shadow:0 0 0 0 #6c263066}100%{box-shadow:0 0 0 1.25rem #6c263000}}
 
 @media(prefers-reduced-motion:reduce){.cursor,.scroll-progress{display:none}.marquee-track{transform:none}.service:hover h3{translate:none}}
+
+/* Hero depth: the portrait drifts against the pointer, the headline follows it, and a soft light tracks it. */
+.hero-light{display:none}
+@media(min-width:801px){
+  html.has-cursor .hero>img{translate:calc(var(--hero-x,0) * -22px) calc(var(--scroll-shift,0px) + var(--hero-y,0) * -16px);scale:1.08;transform-origin:center 40%}
+  html.has-cursor .hero h1{translate:calc(var(--hero-x,0) * 12px) calc(var(--hero-y,0) * 8px)}
+  html.has-cursor .hero .eyebrow,html.has-cursor .hero-actions{translate:calc(var(--hero-x,0) * 6px) calc(var(--hero-y,0) * 4px)}
+  html.has-cursor .hero-light{display:block;position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s ease;mix-blend-mode:soft-light;background:radial-gradient(circle at calc(50% + var(--hero-x,0) * 50%) calc(50% + var(--hero-y,0) * 50%),#fff9 0,#fff3 18vw,transparent 38vw)}
+  html.has-cursor .hero.is-pointer .hero-light{opacity:1}
+  html.has-cursor .hero-content{z-index:2}
+}
